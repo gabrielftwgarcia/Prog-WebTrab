@@ -25,10 +25,12 @@ body{margin: 0;}
 .greenTextAcent{
     color: #76b900;
     font-family:Helvetica;
+    font-size: 28px;
 }
 .whiteText{
     color: white;
     font-family:Helvetica;
+    font-size: 40px;
 }
 .saibaMaisButton{
     background-color: #76b900;
@@ -37,4 +39,7 @@ body{margin: 0;}
     font-family: Verdana;
     font-weight: bold;
     position: relative;
+}
+sup{
+    font-size: 0.4em;
 }
