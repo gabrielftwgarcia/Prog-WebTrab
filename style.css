@@ -2,6 +2,10 @@
     font-family: "GeForce";
     src: url(./fonts/Geforce\ Bold.ttf);
 }
+@font-face {
+    font-family: "GeForceLight";
+    src: url(./fonts/Geforce\ Light.ttf);
+}
 
 body {
     margin: 0;
@@ -35,6 +39,33 @@ body {
     background-size: 1.4rem;
     right: 5%;
     float: right;
+}
+
+#menuBar{
+    width: 100%;
+    height: 45px;
+    margin-top: 2%;
+    margin-left: 2%;
+
+    background-color: black;
+    float: left;
+    position: relative;
+}
+
+.menuItem{
+    float: left;
+    margin-left: 2%;
+    color: gray;
+    font-family: "GeForceLight";
+    font-size: 16px;
+}
+
+.menuItem:hover{
+    color: white;
+}
+
+#supportItem:hover{
+    color: #76b900;
 }
 
 #bannerWrapper {
@@ -75,9 +106,14 @@ body {
     background-color: #76b900;
     /* border-right-width: 10px; */
     color: white;
-    font-family: Verdana;
+    font-family: "GeForce";
     font-weight: bold;
     cursor: pointer;
+}
+#bannerWrapperText span:hover{
+    background-color: #88d601;
+    border: 10px solid #88d601;
+
 }
 
 sup {
@@ -103,6 +139,6 @@ sup {
     color: #76b900;
     font-size: 30px;
     text-align: center;
-    font-family: Helvetica;
+    font-family: "GeForceLight";
     font-weight: lighter;
 }
