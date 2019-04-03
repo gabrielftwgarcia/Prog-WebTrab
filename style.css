@@ -1,69 +1,108 @@
-body{margin: 0;}
-#headerWrapper{
+@font-face {
+    font-family: "GeForce";
+    src: url(./fonts/Geforce\ Bold.ttf);
+}
+
+body {
+    margin: 0;
+}
+
+#headerWrapper {
     width: 100%;
     height: 44px;
     background-color: white;
 }
 
-.headerIcons{
+.headerIcons {
+    position: relative;
     background-repeat: no-repeat;
-    margin-top: 11px;
-    /* vertical-align: middle; */
+    height: 50%;
+    top: 25%;
+    cursor: pointer;
 }
 
-#nvidiaIcon{
-    margin-left: 2.7%;
+#nvidiaIcon {
     width: 10%;
     background-image: url(nvidiaIcon.png);
     background-size: 7rem;
-    float: left;
-    height: 50%;
-    vertical-align: middle;
-    
-}
-
-#userIcon{
-    background-image: url(userIcon.png);
-    height: 50%;
-    float: right;
-    background-size: 1.4rem;
-    width: 4%;
-}
-
-#bannerWrapper{
-    width: 100%;
-    height: 600px;
-    background-image: url(RTX2060.jpg);
-    background-color: white;
-    float:left;
-}
-.bannerTextWrapper{
-    height: 50%;
-    width: 30%;
-    position: relative;
-    top: 10%;
     left: 5%;
-    padding: 20px;
+    float: left;
 }
 
-.greenTextAcent{
-    color: #76b900;
-    font-family:Helvetica;
-    font-size: 28px;
+#userIcon {
+    width: 2%;
+    background-image: url(userIcon.png);
+    background-size: 1.4rem;
+    right: 5%;
+    float: right;
 }
-.whiteText{
+
+#bannerWrapper {
+    overflow: hidden;
+    width: 100%;
+    height: 550px;
+    /* background-image: url(RTX2060.jpg); */
+    /* background-size: contain; */
+    /* background-repeat: no-repeat; */
+    /* background-color: white; */
+    background-color: black;
+}
+
+#bannerWrapperText {
+    margin: 8% 4.5%;
+    position: absolute;
+}
+
+#bannerWrapperText h1, #bannerWrapperText h2 {
+    margin: 0 auto;
+    font-family: "GeForce";
+}
+
+#bannerWrapperText h1 {
+    font-size: 54px;
     color: white;
-    font-family:Helvetica;
-    font-size: 40px;
 }
-.saibaMaisButton{
-    background-color: #76b900;
+
+#bannerWrapperText h2 {
+    font-size: 31px;
+    padding-bottom: 6%;
+    color: #76b900;
+}
+
+#bannerWrapperText span{
+    position: relative;
     border: 10px solid #76b900;
+    background-color: #76b900;
+    /* border-right-width: 10px; */
     color: white;
     font-family: Verdana;
     font-weight: bold;
-    position: relative;
+    cursor: pointer;
 }
-sup{
-    font-size: 0.4em;
+
+sup {
+    margin-left: -1.5%;
+    font-size: 0.5em;
+}
+
+#bannerWrapper img {
+    display: block;
+    width: 50%;
+    height: 560px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#finalText {
+    position: relative;
+    top: 1vw;
+}
+
+#finalText h2 {
+    width: 100%;
+    color: #76b900;
+    font-size: 30px;
+    text-align: center;
+    font-family: Helvetica;
+    font-weight: lighter;
 }
