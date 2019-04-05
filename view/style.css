@@ -1,10 +1,10 @@
 @font-face {
     font-family: "GeForce";
-    src: url(./fonts/Geforce\ Bold.ttf);
+    src: url(../fonts/Geforce\ Bold.ttf);
 }
 @font-face {
     font-family: "GeForceLight";
-    src: url(./fonts/Geforce\ Light.ttf);
+    src: url(../fonts/Geforce\ Light.ttf);
 }
 
 body {
@@ -27,7 +27,7 @@ body {
 
 #nvidiaIcon {
     width: 10%;
-    background-image: url(nvidiaIcon.png);
+    background-image: url(../imagens/nvidiaIcon.png);
     background-size: 7rem;
     left: 5%;
     float: left;
@@ -35,7 +35,7 @@ body {
 
 #userIcon {
     width: 2%;
-    background-image: url(userIcon.png);
+    background-image: url(../imagens/userIcon.png);
     background-size: 1.4rem;
     right: 5%;
     float: right;
