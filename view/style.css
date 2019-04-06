@@ -26,7 +26,7 @@ body {
 }
 
 #nvidiaIcon {
-    width: 10%;
+    width: 112px;
     background-image: url(../imagens/nvidiaIcon.png);
     background-size: 7rem;
     left: 5%;
@@ -34,19 +34,26 @@ body {
 }
 
 #userIcon {
-    width: 2%;
+    width: 23px;
     background-image: url(../imagens/userIcon.png);
     background-size: 1.4rem;
     right: 5%;
     float: right;
 }
 
-#menuBar{
-    width: 100%;
-    height: 45px;
-    margin-top: 2%;
-    margin-left: 2%;
+#menuIcon {
+    width: 2%;
+    color: white;
+    position: relative;
+    font-size: 16px;
+    right: 5%;
+    float: right;
+}
 
+#menuBarWrapper{
+    width: 96%;
+    height: 16px;
+    padding: 2%;
     background-color: black;
     float: left;
     position: relative;
@@ -72,10 +79,10 @@ body {
     overflow: hidden;
     width: 100%;
     height: 550px;
-    /* background-image: url(RTX2060.jpg); */
-    /* background-size: contain; */
-    /* background-repeat: no-repeat; */
-    /* background-color: white; */
+    background-image: url(../imagens/RTX2060.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
     background-color: black;
 }
 
@@ -121,13 +128,13 @@ sup {
     font-size: 0.5em;
 }
 
-#bannerWrapper img {
+/* #bannerWrapper img {
     display: block;
     width: 50%;
     height: 560px;
     margin-right: auto;
     margin-left: auto;
-}
+} */
 
 #finalText {
     position: relative;
