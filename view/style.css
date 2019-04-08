@@ -16,21 +16,27 @@
 body {
     margin: 0;
 }
+.container {
+    position: relative;
+}
+.centered-text {
+    text-align: center;
+}
 
-#headerWrapper {
+.headerWrapper {
     width: 100%;
     height: 44px;
     background-color: white;
 }
 
-.headerIcons {
+.headerWrapper .headerIcons {
     background-repeat: no-repeat;
     height: 50%;
     top: 25%;
     cursor: pointer;
 }
 
-#nvidiaIcon {
+.headerWrapper .headerIcons.nvidiaIcon {
     width: 112px;
     background-image: url(../images/nvidiaIcon.png);
     background-size: 7rem;
@@ -38,7 +44,7 @@ body {
     float: left;
 }
 
-#userIcon {
+.headerWrapper .headerIcons.userIcon {
     width: 23px;
     background-image: url(../images/userIcon.png);
     background-size: 1.4rem;
@@ -46,24 +52,14 @@ body {
     float: right;
 }
 
-#menuIcon {
-    width: 20px;
-    color: white;
-    position: relative;
-    font-size: 18px;
-    right: 5%;
-    float: right;
-    display: none;
-}
-
-#menuBarWrapper {
+.menuBarWrapper {
+    background-color: black;
     height: 5vh;
     padding: 1% 0;
-    background-color: black;
     line-height: 5vh;
 }
 
-.menuItem {
+.menuBarWrapper .menuItem {
     transform: scaleY(0.88);
     float: left;
     margin-left: 2.1%;
@@ -73,32 +69,38 @@ body {
     cursor: pointer;
 }
 
-.menuItem:first-child {
+.menuBarWrapper .menuItem:first-child {
     margin-left: 7%;
 }
 
-.menuItem:hover {
+.menuBarWrapper .menuItem:hover {
     color: white;
 }
 
-.container {
-    position: relative;
-}
-.menuItem span {
+.menuBarWrapper .menuItem span {
     display: inline-block;
     transform: scaleY(0.55);
     transform: scale(0.9, 0.45);
-    margin-left: 7px;    
+    margin-left: 7px;
     bottom: 0.2vh;
 }
 
-.menuItem:nth-child(5):hover {
+.menuBarWrapper .menuItem:nth-child(5):hover {
     color: #76b900;
 }
 
+.menuBarWrapper a.menuIcon {
+    display: none;
+    position: relative;
+    right: 5%;
+    width: 20px;
+    color: white;
+    font-size: 18px;
+    float: right;
+}
 
-#bannerWrapper {
-    overflow: hidden;
+.bannerWrapper {
+    /* overflow: hidden; */
     /* width: 100%; */
     height: 555px;
     background-image: url(../images/RTX2060.jpg);
@@ -108,28 +110,28 @@ body {
     background-color: black;
 }
 
-#bannerWrapperText {
+.bannerWrapper .bannerWrapperText {
     position: absolute;
     margin: 5.6% 4.2%;
 }
 
-#bannerWrapperText h1, #bannerWrapperText h2 {
+.bannerWrapper .bannerWrapperText h1, .bannerWrapper .bannerWrapperText h2 {
     margin: 0 auto;
     font-family: "GeForce";
 }
 
-#bannerWrapperText h1 {
+.bannerWrapper .bannerWrapperText h1 {
     font-size: 54px;
     color: white;
 }
 
-#bannerWrapperText h2 {
+.bannerWrapper .bannerWrapperText h2 {
     font-size: 31px;
     margin-bottom: 6%;
     color: #76b900;
 }
 
-#bannerWrapperText span {
+.bannerWrapper .bannerWrapperText span {
     border: 10px solid #76b900;
     background-color: #76b900;
     border-right-width: 14px;
@@ -141,14 +143,14 @@ body {
     cursor: pointer;
 }
 
-#bannerWrapperText span:hover {
+.bannerWrapper .bannerWrapperText span:hover {
     background-color: #88d601;
     border: 10px solid #88d601;
-    border-right-width: 19px;
-    border-left-width: 19px;
+    border-right-width: 14px;
+    border-left-width: 14px;
 }
 
-sup {
+.bannerWrapper .bannerWrapperText h2 sup {
     margin-left: -1.5%;
     font-size: 0.5em;
 }
@@ -161,13 +163,9 @@ sup {
     margin-left: auto;
 } */
 
-.centered {
-    text-align: center;
-}
-
-.centered h2 {
-    width: 100%;
-    top: 2vw;
+.centered-text h2 {
+    margin-bottom: 0;
+    margin-top: 4%;
     color: #76b900;
     font-size: 33px;
     font-family: "Roboto-Light";
@@ -175,25 +173,23 @@ sup {
 }
 
 /* Tornando a página responsiva */
+
 @media only screen and (max-width: 1024px) {
-    #menuIcon {
+    .menuBarWrapper a.menuIcon {
         display: inline;
+        cursor: pointer;
     }
 }
 
 @media only screen and (max-width: 1024px) {
-    .menuItem {
+    .menuBarWrapper .menuItem {
         display: none;
     }
 }
 
 @media only screen and (max-width: 1024px) {
-    #menuBarWrapper {
-        width: 100%;
-        height: 16px;
-        padding-top: 11px;
-        padding-bottom: 11px;
-        padding-right: 0%;
-        padding-left: 0%;
+    .menuBarWrapper {
+        /* height: 16px; */
+        padding: 11px 0;
     }
 }
