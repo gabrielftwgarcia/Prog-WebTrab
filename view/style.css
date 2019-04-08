@@ -1,10 +1,16 @@
 @font-face {
     font-family: "GeForce";
-    src: url(../fonts/Geforce\ Bold.ttf);
+    src: url(../fonts/GeForce/Geforce\ Bold.ttf);
 }
+
 @font-face {
-    font-family: "GeForceLight";
-    src: url(../fonts/Geforce\ Light.ttf);
+    font-family: "GeForceTrebuchet";
+    src: url(../fonts/GeForce/Trebuchet.ttf);
+}
+
+@font-face {
+    font-family: "Roboto-Light";
+    src: url(../fonts/Roboto/Roboto-Light.ttf);
 }
 
 body {
@@ -18,7 +24,6 @@ body {
 }
 
 .headerIcons {
-    position: relative;
     background-repeat: no-repeat;
     height: 50%;
     top: 25%;
@@ -27,7 +32,7 @@ body {
 
 #nvidiaIcon {
     width: 112px;
-    background-image: url(../imagens/nvidiaIcon.png);
+    background-image: url(../images/nvidiaIcon.png);
     background-size: 7rem;
     left: 5%;
     float: left;
@@ -35,7 +40,7 @@ body {
 
 #userIcon {
     width: 23px;
-    background-image: url(../imagens/userIcon.png);
+    background-image: url(../images/userIcon.png);
     background-size: 1.4rem;
     right: 5%;
     float: right;
@@ -51,68 +56,61 @@ body {
     display: none;
 }
 
-#menuBarWrapper{
-    width: 96%;
-    height: 16px;
-    padding: 2%;
+#menuBarWrapper {
+    height: 5vh;
+    padding: 1% 0;
     background-color: black;
-    float: left;
-    position: relative;
+    line-height: 5vh;
 }
 
-.menuItem{
+.menuItem {
+    transform: scaleY(0.88);
     float: left;
-    margin-left: 2%;
+    margin-left: 2.1%;
     color: gray;
-    font-family: "GeForceLight";
+    font-family: "GeForceTrebuchet";
     font-size: 16px;
+    cursor: pointer;
 }
 
-.menuItem:hover{
+.menuItem:first-child {
+    margin-left: 7%;
+}
+
+.menuItem:hover {
     color: white;
 }
 
-#supportItem:hover{
+.container {
+    position: relative;
+}
+.menuItem span {
+    display: inline-block;
+    transform: scaleY(0.55);
+    transform: scale(0.9, 0.45);
+    margin-left: 7px;    
+    bottom: 0.2vh;
+}
+
+.menuItem:nth-child(5):hover {
     color: #76b900;
 }
 
-@media only screen and (max-width: 1024px) {
-    .menuItem{
-        display: none;
-    }
-}
-
-@media only screen and (max-width: 1024px) {
-    #menuIcon{
-        display: inline;
-    }
-}
-
-@media only screen and (max-width: 1024px) {
-    #menuBarWrapper{
-        width: 100%;
-        height: 16px;
-        padding-top: 11px;
-        padding-bottom: 11px;
-        padding-right: 0%;
-        padding-left: 0%;
-    }
-}
 
 #bannerWrapper {
     overflow: hidden;
-    width: 100%;
-    height: 550px;
-    background-image: url(../imagens/RTX2060.jpg);
-    background-size: contain;
+    /* width: 100%; */
+    height: 555px;
+    background-image: url(../images/RTX2060.jpg);
+    background-size: 51.3%;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: center bottom;
     background-color: black;
 }
 
 #bannerWrapperText {
-    margin: 8% 4.5%;
     position: absolute;
+    margin: 5.6% 4.2%;
 }
 
 #bannerWrapperText h1, #bannerWrapperText h2 {
@@ -127,24 +125,27 @@ body {
 
 #bannerWrapperText h2 {
     font-size: 31px;
-    padding-bottom: 6%;
+    margin-bottom: 6%;
     color: #76b900;
 }
 
-#bannerWrapperText span{
-    position: relative;
+#bannerWrapperText span {
     border: 10px solid #76b900;
     background-color: #76b900;
-    /* border-right-width: 10px; */
+    border-right-width: 14px;
+    border-left-width: 14px;
     color: white;
-    font-family: "GeForce";
+    font-size: 17px;
+    /* font-family: "GeForceTrebuchet"; */
     font-weight: bold;
     cursor: pointer;
 }
-#bannerWrapperText span:hover{
+
+#bannerWrapperText span:hover {
     background-color: #88d601;
     border: 10px solid #88d601;
-
+    border-right-width: 19px;
+    border-left-width: 19px;
 }
 
 sup {
@@ -160,16 +161,39 @@ sup {
     margin-left: auto;
 } */
 
-#finalText {
-    position: relative;
-    top: 1vw;
+.centered {
+    text-align: center;
 }
 
-#finalText h2 {
+.centered h2 {
     width: 100%;
+    top: 2vw;
     color: #76b900;
-    font-size: 30px;
-    text-align: center;
-    font-family: "GeForceLight";
-    font-weight: lighter;
+    font-size: 33px;
+    font-family: "Roboto-Light";
+    font-weight: normal;
+}
+
+/* Tornando a página responsiva */
+@media only screen and (max-width: 1024px) {
+    #menuIcon {
+        display: inline;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .menuItem {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    #menuBarWrapper {
+        width: 100%;
+        height: 16px;
+        padding-top: 11px;
+        padding-bottom: 11px;
+        padding-right: 0%;
+        padding-left: 0%;
+    }
 }
