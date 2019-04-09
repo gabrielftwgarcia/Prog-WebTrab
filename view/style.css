@@ -105,9 +105,9 @@ body {
     /* width: 100%; */
     height: 555px;
     background-image: url(../images/RTX2060.jpg);
-    background-size: 51.3%;
+    background-size: auto;
     background-repeat: no-repeat;
-    background-position: center bottom;
+    background-position: center bottom; /*A propriedade bottom alinha o conteúdo com a borda inferior*/
     background-color: black;
     /* background-attachment: fixed; */
 }
@@ -230,11 +230,12 @@ body {
         /* width: 100%; */
         height: 435px;
         background-image: url(../images/RTX2060.jpg);
-        background-size: cover;
-        background-repeat: no-repeat;
-        /* background-position: center bottom; */
+        background-size: auto;                  /*Fazendo com que a imagem se ajuste automaticamente conforme mudança na resolução*/
+        background-repeat: no-repeat;           /*Garantindo que a imagem não se repita*/
+        background-position: center bottom;     /*Centralizando imagem independente da resolução*/
         background-color: black;
-        background-attachment: fixed;
+        /* background-attachment: fixed; */
+        /* zoom: 0.9; */
     }
 
 
