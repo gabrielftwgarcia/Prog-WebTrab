@@ -163,6 +163,74 @@ body {
     font-weight: normal;
 }
 
+/* Estilizando tela de login */
+#modal-login{
+    position: fixed;
+    display: none;
+    /*Estado do display alterado no html*/
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    margin: 0 auto;
+}
+
+.modal_box header {
+    position: relative;
+    background-color: #76b900;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    margin: 0px -21px;
+    height: 40px;
+    top: -21px;
+    line-height: 2.8vw;
+}
+
+.modal_box {
+    width: 350px;
+    border: 1px solid #eee;
+    background-color: white;
+    padding: 20px;
+    /* margin: 5% auto 15% auto; */
+}
+
+.modal_box-login {
+    height: 125px;
+    margin: 10% auto;
+}
+
+.button-group {
+    /* position: relative; */
+    margin: 6% auto;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    /* bottom: 5%; */
+}
+
+#modal-login span {
+    border: 2px solid #76b900;
+    background-color: #76b900;
+    border-right-width: 14px;
+    border-left-width: 14px;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#modal-login span:hover {
+    background-color: #88d601;
+    border: 2px solid #88d601;
+    border-right-width: 14px;
+    border-left-width: 14px;
+}
+
 @media only screen and (max-width: 1024px) {
     
     .menuBarWrapper {

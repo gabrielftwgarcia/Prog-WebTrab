@@ -4,16 +4,40 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
 <title>Líder em Computação de Inteligência Artificial | NVIDIA</title>
+
 <head>
     <link rel="icon" href="/images/nvidiaFavIcon.jpg">
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
-    <meta name="description" content="Tecnologia de computação visual da NVIDIA: criadora da GPU, o que gera gráficos interativos em laptops, estações de trabalho, dispositivos móveis, notebooks ..."/>
+    <meta name="description"
+        content="Tecnologia de computação visual da NVIDIA: criadora da GPU, o que gera gráficos interativos em laptops, estações de trabalho, dispositivos móveis, notebooks ..." />
 </head>
 
 <body>
     <div class="headerWrapper">
         <div class="container headerIcons nvidiaIcon"></div>
-        <div class="container headerIcons userIcon"></div>
+        <div id="loginBtn" class="container headerIcons userIcon"></div>
+    </div>
+
+    <!-- Criando um modal ao clicar no botão Adicionar relacionado à protocolo -->
+    <div id="modal-login">
+        <div class="modal_box modal_box-login">
+            <header>Login no sistema</header>
+            <div class="input-field">
+                <label for="login"><b>Login </b></label>
+                <input id="login" type="text" value="">
+
+                <br>
+
+                <label for="senha"><b>Senha</b></label>
+                <input id="senha" type="password" value="">
+            </div>
+            <div class="button-group">
+                <button onclick="userLogin()">Entrar</button>
+                <button type="button"
+                    onclick="document.getElementById('modal-login').style.display='none'">Cancelar</button>
+                <span onclick="userCadastrar()">Cadastrar</span>
+            </div>
+        </div>
     </div>
 
     <div class="menuBarWrapper">
@@ -42,3 +66,35 @@
 </body>
 
 </html>
+
+<script>
+    var login = loginView => {
+        document.getElementById("modal-login").style.display = "block";
+
+        document.getElementById('login').focus();
+
+        // Limpando valores dos campos de login e senha
+        document.getElementById('login').value = "";
+        document.getElementById('senha').value = "";
+    }
+
+    document.getElementById('loginBtn').onclick = login;
+
+
+    function userLogin(){
+
+        if(document.getElementById('login').value === "" || document.getElementById('senha').value === ""){
+            alert("Os campos login e senha devem ser preenchidos para proceder!");
+        }
+        else{
+            alert("parebens pelo login")
+        }
+        
+    }
+
+    function userCadastrar(){
+        // Registro.hbs ou outra.hbs ?
+        alert("Redireciona para a tela de cadastro");
+    }
+
+</script>
