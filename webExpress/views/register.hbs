@@ -12,11 +12,18 @@
 <body>
     <h1>Cadastro de informações</h1>
     <form method="GET" action="">
-        <label>Nome da placa da série RTX</label>
-        <br>
+        <label>Nome da placa da série RTX:</label>
         <input id="placaInfo" type="text">
+        
+        <br><br>
+
+        <label for="placaImagem">Imagem da placa:</label>
+        <input id="placaImagem" name="placaImagem" type="file" accept="image/png, image/jpeg">
+
     </form>
     
+    <br>
+
     <button id="cadastrarBtn">Cadastrar</button>
 </body>
 
@@ -24,15 +31,18 @@
 
 <script>
     var add = addValor => {
-        if(document.getElementById('placaInfo').value.trim() === ""){
-            alert("É preciso que todos os campos sejam preenchidos para a inserção de valores!");
-        }
-
-        alert("Insere no banco e redireciona p/ a página principal com os dados inseridos");
-
         console.log(document.getElementById('placaInfo').value);
 
-        document.getElementById('placaInfo').value = "";
+        if(document.getElementById('placaInfo').value.trim() === "" || document.getElementById('placaImagem').value === ""){
+            alert("É preciso que todos os campos sejam preenchidos para a inserção de valores!");
+        }
+        else{
+            alert("Insere no banco e redireciona p/ a página principal com os dados inseridos");
+
+            window.location.href = "http://localhost:3000/";
+
+        }
+        
     }
 
     // Quando clicar no botão cadastrar, executa a função addValor

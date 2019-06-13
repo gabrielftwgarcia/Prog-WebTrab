@@ -87,14 +87,17 @@
             alert("Os campos login e senha devem ser preenchidos para proceder!");
         }
         else{
+            // redireciona para a página de cadastro de dados
             alert("parebens pelo login")
         }
         
     }
 
     function userCadastrar(){
-        // Registro.hbs ou outra.hbs ?
-        alert("Redireciona para a tela de cadastro");
+        // Redirecionando para registerUser.hbs
+
+        // FIXME: o problema de fazer assim é que se a porta mudar, dará erro
+        window.location.href = "http://localhost:3000/registerUser";
     }
 
 </script>
