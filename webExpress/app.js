@@ -1,17 +1,31 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const mongoose = require('mongoose');
+const indexRouter = require('./routes/index');
+const testRouter = require('./routes/test');
+const registerRouter = require('./routes/register');
+const registerRouterUser = require('./routes/registerUser');
+const addProdutRouter = require('./routes/addProduct');
+const config = require('./config/database');
 
-var indexRouter = require('./routes/index');
-var testRouter = require('./routes/test');
-var registerRouter = require('./routes/register');
-var registerRouterUser = require('./routes/registerUser');
-var addProdutRouter = require('./routes/addProduct');
+mongoose.connect(config.database);
+let db = mongoose.connection;
+
+// Check connection
+db.once('open', function(){
+  console.log('Connected to MongoDB');
+});
+
+// Check for DB errors
+db.on('error', function(err){
+  console.log(err);
+});
 
 
-var app = express();
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -29,6 +43,8 @@ app.use('/register', registerRouter);
 app.use('/registerUser', registerRouterUser);
 app.use('/addProduct',addProdutRouter);
 
+let users = require('./routes/users');
+app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

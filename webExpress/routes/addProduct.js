@@ -25,6 +25,7 @@ router.get('/get-product', function(req, res, next){
     });
 });*/
 
+// Método que faz a inserção no banco de dados
 router.post('/insert', function(req, res, next){
     var product ={
         description: req.body.description,

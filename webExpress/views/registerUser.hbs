@@ -13,28 +13,28 @@
 
 <body>
     <h1>Cadastro de usuários</h1>
-    <form method="GET" action="">
-        <label>Email</label>
-        <br>
-        <input id="email" type="email">
-        
-        <br><br>
-
+    <form method="POST" action='/users/registroUsuario'>
         <label>Login</label>
         <br>
-        <input id="login" type="text">
-        
+        <input name="login" id="login" type="text">
+
         <br><br>
-        
+
+        <label>Email</label>
+        <br>
+        <input name="email" id="email" type="email">
+
+        <br><br>
+
         <label>Senha</label>
         <br>
-        <input id="senha" type="password">
-        
+        <input name="senha" id="senha" type="password">
+
+        <br>
+
+        <input type="submit" value="Cadastrar" onclick="cadastrarUsuario()"></input>
     </form>
 
-    <br>
-
-    <button onclick="cadastrarUsuario()">Cadastrar</button>
 </body>
 
 </html>
@@ -43,14 +43,14 @@
 
     // TODO: login e email não podem repetir no banco!
     function cadastrarUsuario() {
-        if (document.getElementById('login').value.trim() === ""  || 
-            document.getElementById('senha').value.trim() === "" || 
-            document.getElementById('email').value.trim() === ""){
-                alert("Todos os campos devem ser preenchidos para proceder!");
+        if (document.getElementById('login').value.trim() === "" ||
+            document.getElementById('senha').value.trim() === "" ||
+            document.getElementById('email').value.trim() === "") {
+            alert("Todos os campos devem ser preenchidos para proceder!");
         }
         else {
             alert("Usuário cadastrado com sucesso!");
-            window.location.href = "http://localhost:3000/";
+            //window.location.href = "http://localhost:3000/";
         }
     }
 
