@@ -16,11 +16,11 @@
     <form action="/addProduct/insert" method="post" enctype="multipart/form-data">
         <div class="input">
             <label for="description">Frase</label>
-            <input type="text" id="description" name="description">
+            <input type="text" id="description" name="description" required>
         </div>
         <div class="input">
             <label for="image">Imagem</label>
-            <input type="file" id="image" name="image">
+            <input type="file" id="image" name="image" required>
         </div>
         <button type="submit">INSERT</button>
     </form>
