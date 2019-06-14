@@ -18,7 +18,7 @@ router.get('/registerUser', function (req, res) {
 });
 
 // Processo de cadastro
-router.post('registroUsuario', function (req, res) {
+router.post('/registerUser', function (req, res) {
   const email = req.body.email;
   const login = req.body.login;
   const senha = req.body.senha;
@@ -31,15 +31,23 @@ router.post('registroUsuario', function (req, res) {
     senha: senha
   });
 
-  novoUsuario.save(function (err) {
-    if (err) {
-      console.log(err);
-      return;
+  // TODO: verificar se o email já existe no banco
+  User.find({ email: email.email }, function (error, docs) {
+    if (docs.length) {
+      alert("Email já cadastrado!!");
     } else {
-      // alert("É pra redirecionar pra algum lugar")
-      res.redirect('/webExpress/views/index.hbs')
+      novoUsuario.save(function (err) {
+        if (err) {
+          console.log(err);
+          return;
+        } else {
+          // alert("É pra redirecionar pra algum lugar")
+          res.redirect('/')
+        }
+      });
     }
-  });
+  })
+
 
 });
 

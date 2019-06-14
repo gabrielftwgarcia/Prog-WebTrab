@@ -3,13 +3,15 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const mongoose = require('mongoose');
 const indexRouter = require('./routes/index');
 const testRouter = require('./routes/test');
 const registerRouter = require('./routes/register');
 const registerRouterUser = require('./routes/registerUser');
 const addProdutRouter = require('./routes/addProduct');
+
+const mongoose = require('mongoose');
 const config = require('./config/database');
+const bodyParser = require('body-parser');
 
 mongoose.connect(config.database);
 let db = mongoose.connection;
@@ -31,6 +33,12 @@ const app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
+// Body Parser Middleware
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+// parse application/json
+app.use(bodyParser.json());
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -43,6 +51,7 @@ app.use('/register', registerRouter);
 app.use('/registerUser', registerRouterUser);
 app.use('/addProduct',addProdutRouter);
 
+// Route files
 let users = require('./routes/users');
 app.use('/users', users);
 

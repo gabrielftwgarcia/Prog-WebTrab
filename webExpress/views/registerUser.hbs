@@ -13,7 +13,7 @@
 
 <body>
     <h1>Cadastro de usuários</h1>
-    <form method="POST" action='/users/registroUsuario'>
+    <form action='/users/registerUser' method="post">
         <label>Login</label>
         <br>
         <input name="login" id="login" type="text">
@@ -30,9 +30,9 @@
         <br>
         <input name="senha" id="senha" type="password">
 
-        <br>
+        <br><br>
 
-        <input type="submit" value="Cadastrar" onclick="cadastrarUsuario()"></input>
+        <input type="submit" value="Cadastrar"></input>
     </form>
 
 </body>
@@ -47,10 +47,6 @@
             document.getElementById('senha').value.trim() === "" ||
             document.getElementById('email').value.trim() === "") {
             alert("Todos os campos devem ser preenchidos para proceder!");
-        }
-        else {
-            alert("Usuário cadastrado com sucesso!");
-            //window.location.href = "http://localhost:3000/";
         }
     }
 
