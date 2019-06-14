@@ -10,6 +10,7 @@ router.get('/', function(req, res, next) {
     res.render('addProduct', { title: 'Express' });
 });
 
+/* INUTIL
 router.get('/get-product', function(req, res, next){
     var resultArray = [];
     mongo.connect(url, function(err, db){
@@ -22,14 +23,13 @@ router.get('/get-product', function(req, res, next){
             res.render('')
         });
     });
-});
+});*/
 
 router.post('/insert', function(req, res, next){
     var product ={
         description: req.body.description,
         image:  req.body.image
     };
-    console.log('BP0')
 
     mongo.connect(url,{ useNewUrlParser: true }, function(err, client) {
         assert.equal(null, err);
