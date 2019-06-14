@@ -15,6 +15,11 @@
 <body>
     <div class="headerWrapper">
         <div class="container headerIcons nvidiaIcon"></div>
+        <form class="searchBar" action="/busca" method="post">
+            <div class="input">
+            <input type="text" id="search" name="search"></div>
+            <div><button type="submit">Buscar</button></div>
+        </form>
         <div id="loginBtn" class="container headerIcons userIcon" onclick="abrirTelaLogin()"></div>
     </div>
 
@@ -53,13 +58,16 @@
         <a class="menuIcon">&#9776;</a>
     </div>
 
-    <div class="bannerWrapper">
-        <div class="bannerWrapperText">
-            <h1>RTX. CHEGOU A HORA.</h1>
-            <h2>GEFORCE RTX <sup> ™</sup> 2060</h1>
-                <span class="container">SAIBA MAIS</span>
+    {{# each products }}
+        <div class="bannerWrapper">
+            <div class="bannerWrapperText">
+                <h1>RTX. CHEGOU A HORA.</h1>
+                <h2>{{this.description}} <sup> ™</sup></h2>
+                <h3>{{this.image}}</h3>
+                    <span class="container">SAIBA MAIS</span>
+            </div>
         </div>
-    </div>
+    {{/each}}
 
     <div class="centered-text">
         <h2>GAMING</h2>

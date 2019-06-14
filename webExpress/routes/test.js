@@ -22,7 +22,7 @@ router.get('/', function (req, res, next) {
       resultArray.push(doc);
     }, function () {
       client.close();
-      res.render('testShowProducts', { products: resultArray });
+      res.render('index', { products: resultArray });
     });
   });
 });

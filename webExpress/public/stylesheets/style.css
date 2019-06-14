@@ -52,6 +52,13 @@ body {
     float: right;
 }
 
+.searchBar {
+    width: 35%;
+    height: 25px;
+    float: left;
+    margin-left: 30%
+}
+
 .menuBarWrapper {
     background-color: black;
     height: 5vh;
@@ -115,7 +122,7 @@ body {
     margin: 5.6% 4.2%;
 }
 
-.bannerWrapper .bannerWrapperText h1, .bannerWrapper .bannerWrapperText h2 {
+.bannerWrapper .bannerWrapperText h1, .bannerWrapper .bannerWrapperText h2, .bannerWrapper .bannerWrapperText h3 {
     margin: 0 auto;
     font-family: "GeForce";
 }
@@ -125,7 +132,7 @@ body {
     color: white;
 }
 
-.bannerWrapper .bannerWrapperText h2 {
+.bannerWrapper .bannerWrapperText h2, .bannerWrapper .bannerWrapperText h3 {
     font-size: 31px;
     margin-bottom: 6%;
     color: #76b900;
