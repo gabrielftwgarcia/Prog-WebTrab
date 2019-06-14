@@ -14,21 +14,27 @@
 <body>
     <h1>Cadastro de usuários</h1>
     <form action='/users/registerUser' method="post">
+        <label>Endereço</label>
+        <br>
+        <input name="endereco" id="endereco" type="text" required>
+
+        <br><br>
+
         <label>Login</label>
         <br>
-        <input name="login" id="login" type="text">
+        <input name="login" id="login" type="text" required>
 
         <br><br>
 
         <label>Email</label>
         <br>
-        <input name="email" id="email" type="email">
+        <input name="email" id="email" type="email" required>
 
         <br><br>
 
         <label>Senha</label>
         <br>
-        <input name="senha" id="senha" type="password">
+        <input name="senha" id="senha" type="password" required>
 
         <br><br>
 

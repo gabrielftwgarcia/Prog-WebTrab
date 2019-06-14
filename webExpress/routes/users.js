@@ -44,6 +44,7 @@ router.get('/registerUser', function (req, res) {
 
 // Processo de cadastro
 router.post('/registerUser', function (req, res) {
+  const endereco = req.body.endereco;
   const email = req.body.email;
   const login = req.body.login;
   const senha = req.body.senha;
@@ -51,12 +52,13 @@ router.post('/registerUser', function (req, res) {
   // A verificação dos erros é feita em registerUser.hbs (o ideal era verificar aqui)
   // Se tudo estiver ok, crio um novo usuário
   let novoUsuario = new User({
+    endereco: endereco,
     email: email,
     login: login,
     senha: senha
   });
 
-  // TODO: verificar se o email já existe no banco
+  // TODO: verificar se o email e login já existem no banco
   User.find({ email: email.email }, function (error, docs) {
     if (docs.length) {
       alert("Email já cadastrado!!");

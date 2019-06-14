@@ -16,13 +16,13 @@
     <form action='/users/login' method="post">
         <label>Login</label>
         <br>
-        <input name="login" id="login" type="text">
+        <input name="login" id="login" type="text" required>
 
         <br><br>
 
         <label>Senha</label>
         <br>
-        <input name="senha" id="senha" type="password">
+        <input name="senha" id="senha" type="password" required>
 
         <br><br>
 
@@ -44,10 +44,6 @@
 
         if (document.getElementById('login').value === "" || document.getElementById('senha').value === "") {
             alert("Os campos login e senha devem ser preenchidos para proceder!");
-        }
-        else {
-            // redireciona para a página de cadastro de dados
-            alert("parebens pelo login")
         }
 
     }

@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 
 // Schema do usuário
 const UserSchema = mongoose.Schema({
+    endereco:{
+        type: String,
+        required: true
+    },
     login:{
         type: String,
         required: true
