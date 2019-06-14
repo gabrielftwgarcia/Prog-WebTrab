@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
+const passport = require('passport');
+
 /* GET users listing. */
 // router.get('/', function(req, res, next) {
 //   res.send('respond with a resource');
@@ -16,6 +18,29 @@ router.get('/registerUser', function (req, res) {
   // Renderizando para a view register  
   res.render('registerUser');
 });
+
+// Determinando se o usuário está cadastrado no sistema no ato de login
+// router.post('/', function (req, res) {
+//   var login = req.body.login;
+//   var senha = req.body.senha;
+
+//   User.findOne({ login: login, senha: senha }, function (err, user) {
+//     if (err) {
+//       console.log(err);
+//       return;
+//     }
+
+//     // Se o usuário não foi encontrado
+//     if (!user) {
+//       console.log("USUARIO NAO CADASTRADO NO SISTEMA")
+//       return res.status(404).send();
+//     }
+
+//     // Se o usuário está cadastrado no sistema (login e senha conforme o que está no banco)
+//     alert("Usuário cadastrado no sistema!");
+//     return res.send(user);
+//   });
+// });
 
 // Processo de cadastro
 router.post('/registerUser', function (req, res) {
@@ -49,6 +74,21 @@ router.post('/registerUser', function (req, res) {
   })
 
 
+});
+
+// Processo de login
+router.get('/login', function(req, res){
+  res.render('login');
+});
+
+router.post('/login', function(req, res, next){
+  console.log("passou pelo autenticate")
+
+  passport.authenticate('local', {
+    successRedirect: '/', 
+    failureRedirect: '/users/login',
+    failureFlash: true
+  })(req, res, next);
 });
 
 module.exports = router;

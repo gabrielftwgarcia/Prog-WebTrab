@@ -15,11 +15,11 @@
 <body>
     <div class="headerWrapper">
         <div class="container headerIcons nvidiaIcon"></div>
-        <div id="loginBtn" class="container headerIcons userIcon"></div>
+        <div id="loginBtn" class="container headerIcons userIcon" onclick="abrirTelaLogin()"></div>
     </div>
 
     <!-- Criando um modal ao clicar no botão Adicionar relacionado à protocolo -->
-    <div id="modal-login">
+    {{!-- <div id="modal-login">
         <div class="modal_box modal_box-login">
             <header>Login no sistema</header>
             <div class="input-field">
@@ -32,13 +32,15 @@
                 <input id="senha" type="password" value="">
             </div>
             <div class="button-group">
-                <button onclick="userLogin()">Entrar</button>
+                <form action='/users/' method="post">
+                    <input type="submit" value="Entrar"></input>
+                </form>
                 <button type="button"
                     onclick="document.getElementById('modal-login').style.display='none'">Cancelar</button>
                 <span onclick="userCadastrar()">Cadastrar</span>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <div class="menuBarWrapper">
         <div class="menuItem">DRIVERS <span class="container">▼</span></div>
@@ -68,36 +70,21 @@
 </html>
 
 <script>
-    var login = loginView => {
-        document.getElementById("modal-login").style.display = "block";
 
-        document.getElementById('login').focus();
+    function userLogin() {
 
-        // Limpando valores dos campos de login e senha
-        document.getElementById('login').value = "";
-        document.getElementById('senha').value = "";
-    }
-
-    document.getElementById('loginBtn').onclick = login;
-
-
-    function userLogin(){
-
-        if(document.getElementById('login').value === "" || document.getElementById('senha').value === ""){
+        if (document.getElementById('login').value === "" || document.getElementById('senha').value === "") {
             alert("Os campos login e senha devem ser preenchidos para proceder!");
         }
-        else{
+        else {
             // redireciona para a página de cadastro de dados
             alert("parebens pelo login")
         }
-        
+
     }
 
-    function userCadastrar(){
-        // Redirecionando para registerUser.hbs
-
-        // FIXME: o problema de fazer assim é que se a porta mudar, dará erro
-        window.location.href = "http://localhost:3000/registerUser";
+    function abrirTelaLogin(){
+        window.location.href = "http://localhost:3000/login";        
     }
 
 </script>
