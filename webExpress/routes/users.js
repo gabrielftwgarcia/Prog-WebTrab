@@ -58,7 +58,7 @@ router.post('/registerUser', function (req, res) {
     senha: senha
   });
 
-  // TODO: verificar se o email e login já existem no banco
+  // FIXME: se email ou login já existem, não insere (fica um load infinito {tratar isso melhor})
   User.find({ email: email.email }, function (error, docs) {
     if (docs.length) {
       alert("Email já cadastrado!!");

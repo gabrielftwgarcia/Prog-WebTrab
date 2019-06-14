@@ -8,10 +8,12 @@ const UserSchema = mongoose.Schema({
     },
     login:{
         type: String,
+        unique : true,
         required: true
     },
     email:{
         type: String,
+        unique : true,
         required: true
     },
     senha:{
