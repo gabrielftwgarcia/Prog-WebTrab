@@ -13,14 +13,14 @@
 
 <body>
     <h3>Adicionar Placa</h3>
-    <form action="/addProduct/insert" method="post">
+    <form action="/addProduct/insert" method="post" enctype="multipart/form-data">
         <div class="input">
             <label for="description">Frase</label>
             <input type="text" id="description" name="description">
         </div>
         <div class="input">
             <label for="image">Imagem</label>
-            <input type="text" id="image" name="image">
+            <input type="file" id="image" name="image">
         </div>
         <button type="submit">INSERT</button>
     </form>

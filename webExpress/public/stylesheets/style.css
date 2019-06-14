@@ -110,7 +110,7 @@ body {
 .bannerWrapper {
 
     height: 555px;
-    background-image: url(/images/RTX2060.jpg);
+    /*background-image: url(/images/RTX2060.jpg);*/
     background-size: auto;
     background-repeat: no-repeat;
     background-position: center bottom;
@@ -289,7 +289,7 @@ body {
     .bannerWrapper {
 
         height: 435px;
-        background-image: url(/images/RTX2060.jpg);
+        /*background-image: url(/images/RTX2060.jpg);*/
         background-size: auto;
         background-repeat: no-repeat;
         background-position: center bottom;
