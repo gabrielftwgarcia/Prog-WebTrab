@@ -1,3 +1,7 @@
+// middleware Node.js que faz a implementação de autenticação em um aplicativo de maneira rápida e fácil.
+// Em aplicações web modernas podem-se ter várias formas de autenticação. Tradicionalmente usuários se 
+// logam fornecendo um usuário e uma senha.
+
 const LocalStrategy = require('passport-local').Strategy;
 const User = require("../model/user");
 const config = require('../config/database');

@@ -13,6 +13,8 @@
 
 <body>
     <h3>Adicionar Placa</h3>
+    {{!-- Requisição post: não pode ser vista na url
+    enctype: define o tipo necessário quando o usuário envia um arquivo na requisição --}}
     <form action="/addProduct/insert" method="post" enctype="multipart/form-data">
         <div class="input">
             <label for="description">Frase</label>

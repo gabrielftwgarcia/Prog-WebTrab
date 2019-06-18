@@ -22,12 +22,12 @@ const session = require('express-session');
 mongoose.connect(config.database);
 let db = mongoose.connection;
 
-// Check connection
+// Verifica conexão
 db.once('open', function(){
   console.log('Connected to MongoDB');
 });
 
-// Check for DB errors
+// Verifica  DB 
 db.on('error', function(err){
   console.log(err);
 });
@@ -41,6 +41,10 @@ app.set('view engine', 'hbs');
 
 // Body Parser Middleware
 // parse application/x-www-form-urlencoded
+
+// o node vai receber os dados vindos através de um POST feito por um formulário HTML, você vai precisar
+// do urlencoded, já que o request padrão de um formulário com o metódo POST é um content-type do tipo
+// "application/x-www-form-urlencoded"
 app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
