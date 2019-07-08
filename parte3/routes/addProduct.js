@@ -14,7 +14,7 @@ const storage = multer.diskStorage({
 });
 const upload = multer({storage})
 
-var url =  'mongodb://localhost:27017';
+var url =  'mongodb://admin:password1@ds139427.mlab.com:39427/heroku_gw46d2k3';
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -36,7 +36,7 @@ router.post('/insert', upload.single('image'), function(req, res, next){
 
     mongo.connect(url,{ useNewUrlParser: true }, function(err, client) {
         assert.equal(null, err);
-        var db = client.db('projeto2Web');
+        var db = client.db('heroku_gw46d2k3');
         db.collection('products').insertOne(product, function(err, result){
             assert.equal(null, err);
             console.log('Produto Adicionado, fechando o bando de dados')
