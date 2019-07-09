@@ -20,6 +20,7 @@ var UrlApiProductsJSON = 'localhost:3000/product-json'
 
 var dinamicContainer = document.getElementById("dinamicTest");
 
+// Ao clicar em dinamico, recupera as informações armazenadas no mlab relacionadas ao banco de dados da aplicação
 var dinamicButton = document.getElementById("dinamic");
 dinamicButton.addEventListener('click', dinamicTrigger)
 
@@ -32,10 +33,13 @@ function dinamicTrigger(){
 }
 renderHTML(jsonTest);
 
+// Recuperando informações do servidor com base no arquivo JSON do mlab
 function getDataFromServer(){
     var xhr = new XMLHttpRequest();
+    
     xhr.open('GET', ApiDBProductsJSON , true);
 
+    // Atualizando o JSON da aplicação quando a requisição HTTP está pronta
     xhr.onreadystatechange = function(){
         if(this.status == 200 && xhr.readyState ==4){
             
@@ -52,6 +56,8 @@ function getDataFromServer(){
 
     xhr.send();
 }
+
+// Método que renderiza o novo conteudo HTML com base no arquivor JSON passado
 function renderHTML(data){
     var htmlstring = "";
     for(i = 0; i < data.length; i++){
@@ -65,6 +71,8 @@ function renderHTML(data){
                     "</div>"+
                   "</div>";
     }
+
+    // Inserindo o conteúdo no conteiner dinâmico
     dinamicContainer.innerHTML  = htmlstring;
 }
 

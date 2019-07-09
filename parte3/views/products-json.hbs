@@ -7,22 +7,65 @@
 
 <head>
     <link rel="icon" href="/images/nvidiaFavIcon.jpg">
-    <meta name="description"
-        content="Tecnologia de computação visual da NVIDIA: criadora da GPU, o que gera gráficos interativos em laptops, estações de trabalho, dispositivos móveis, notebooks ..." />
+    <meta name="description" content="Tecnologia de computação visual da NVIDIA: criadora da GPU, o que gera gráficos interativos em laptops, estações de trabalho, dispositivos móveis, notebooks ..." />
+
+    {{!-- Com base nos links disponibilizados na descricao das tarefas --}}
+    <!-- Google CDN -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/black-tie/jquery-ui.css" />
+    
+    <script src="js/jquery.ajax-progress.js"></script>
+    <script>
+        var ApiDBProductsJSON = 'https://api.mlab.com/api/1/databases/heroku_gw46d2k3/collections/products?apiKey=2olqeRes1Gr6N7gDDUl2BRVlUJekxPXK'
+
+        $(function() {
+            $('#prog').progressbar({ value: 0 });
+            
+            $.ajax({
+                method: 'GET',
+                url: ApiBDProductsJSON,
+                success: function() {
+                    console.log('YAYE!', arguments[0]);
+                },
+                error: function() {
+                    console.log('AWWW!');
+                },
+                progress: function(e) {
+                    if(e.lengthComputable) {
+                        var pct = (e.loaded / e.total) * 100;
+                        $('#prog')
+                            .progressbar('option', 'value', pct)
+                            .children('.ui-progressbar-value')
+                            .html(pct.toPrecision(3) + '%')
+                            .css('display', 'block');
+                    } else {
+                        console.warn('Content Length not reported!');
+                    }
+                }
+            });
+        });
+    </script>
+
 </head>
     
 <body>
-    <p>[</p>
-     {{# each products }}
-        <p>{"description": "</p>
-        <p>{{this.description}}</p>
-        <p>","image" :"</p>
-        <p>{{this.image}}</p>
-        <p>"},</p>
-                
-    {{/each}}
-    <p>{"description": "RTX 2080 Super","image" :"/images/1562471342202nvidia-geforce-rtx-2080-super.webp"}</p>
-    <p>]</p>
+    <div id="prog">
+
+        <p>[</p>
+        {{# each products }}
+            <p>{"description": "</p>
+            <p>{{this.description}}</p>
+            <p>","image" :"</p>
+            <p>{{this.image}}</p>
+            <p>"},</p>
+        {{/each}}
+
+        <p>{"description": "RTX 2080 Super","image" :"/images/1562471342202nvidia-geforce-rtx-2080-super.webp"}</p>
+        <p>]</p>
+
+    </div>
 </body>
 
 </html>
+
