@@ -1,12 +1,8 @@
 // JSON Estático para testes
-var jsonTest = [
+var databaseJSON = [
     {
         'description' : 'RTX 2080 Super',
         'image' : '/images/1562471342202nvidia-geforce-rtx-2080-super.webp'
-    },
-    {
-        'description' : 'Teste Imagem Grande',
-        'image' : '/images/1562471368496Captura de tela de 2018-05-14 21-00-50.png'
     }
 ]
 
@@ -33,7 +29,7 @@ renderHTML();
 
 //Função que pede atualização dos dados para API e renderiza a página
 function dinamicTrigger(){
-    //renderHTML2(jsonTest);
+    //renderHTML2(databaseJSON);
     getDataFromServer();
     renderHTML();
 
@@ -59,7 +55,7 @@ function getDataFromServer(){
             progressContainer.innerHTML = "Status requisição XMLHTTP: Requisição finalizada";
             console.log("Status requisição XMLHTTP: Requisição finalizada");
             // Atualizando o JSON da aplicação quando a requisição HTTP está pronta
-            jsonTest =JSON.parse(this.responseText);
+            databaseJSON =JSON.parse(this.responseText);
         }
     }
     //Tratamento do erro na requisição
@@ -78,16 +74,16 @@ function renderHTML(){
 
     //Tratamento caso a String de busca seja vazia
     if(search == ""){
-        for(i = 0; i < jsonTest.length; i++){
-            //Teste Descrição caso busca negativa //console.log("Desc- :" + jsonTest[i].description);
+        for(i = 0; i < databaseJSON.length; i++){
+            //Teste Descrição caso busca negativa //console.log("Desc- :" + databaseJSON[i].description);
             //Geração do HTML necessário para renderizar adequadamente
             htmlstring += "<div class='bannerWrapper'>"+
             "<div class='bannerWrapperText'>"+
             "<h1>RTX. CHEGOU A HORA.</h1>"+
-            "<h2>" + jsonTest[i].description + "</h2>"+
+            "<h2>" + databaseJSON[i].description + "</h2>"+
             "<span class='container'>SAIBA MAIS</span>"+
             "</div><div class='bannerWrapperImage'>"+
-            "<img class='bannerImage' src='"+ jsonTest[i].image + "' alt='Erro'></img>"+
+            "<img class='bannerImage' src='"+ databaseJSON[i].image + "' alt='Erro'></img>"+
             "</div>"+
             "</div>";
         }
@@ -95,17 +91,17 @@ function renderHTML(){
 
     //Tratamento caso a String de busca não seja vazia
     else{
-        for(i = 0; i < jsonTest.length; i++){
-            if(search == jsonTest[i].description){
-                //Teste Descrição caso busca positiva //console.log("Desc+ :" + jsonTest[i].description);
+        for(i = 0; i < databaseJSON.length; i++){
+            if(search == databaseJSON[i].description){
+                //Teste Descrição caso busca positiva //console.log("Desc+ :" + databaseJSON[i].description);
                 //Geração do HTML necessário para renderizar adequadamente
                 htmlstring += "<div class='bannerWrapper'>"+
                 "<div class='bannerWrapperText'>"+
                 "<h1>RTX. CHEGOU A HORA.</h1>"+
-                "<h2>" + jsonTest[i].description + "</h2>"+
+                "<h2>" + databaseJSON[i].description + "</h2>"+
                 "<span class='container'>SAIBA MAIS</span>"+
                 "</div><div class='bannerWrapperImage'>"+
-                "<img class='bannerImage' src='"+ jsonTest[i].image + "' alt='Erro'></img>"+
+                "<img class='bannerImage' src='"+ databaseJSON[i].image + "' alt='Erro'></img>"+
                 "</div>"+
                 "</div>";
             }
@@ -131,19 +127,19 @@ function sugestSearch(){
     sugestionHTML = '';
     
     sugestion = searchInput.value;
-    for(var i = 0; i < jsonTest.length; i++){
+    for(var i = 0; i < databaseJSON.length; i++){
         //console.log("Sugest "+ sugestion);
 
-        //console.log("String "+ jsonTest[i].description);
-        if(jsonTest[i].description.search(sugestion) >= 0){
+        //console.log("String "+ databaseJSON[i].description);
+        if(databaseJSON[i].description.search(sugestion) >= 0){
             
-            //Teste verificação if //console.log("Aceito: " + jsonTest[i].description);
+            //Teste verificação if //console.log("Aceito: " + databaseJSON[i].description);
             //Contrução do HTML para que as sugestões apareçam
             sugestionHTML +=    "<div class='searchSugestion'>" +
-                                jsonTest[i].description + "</div>";
+                                databaseJSON[i].description + "</div>";
         }
         else{
-            console.log("NOPEEE: " + jsonTest[i].description);
+            console.log("NOPEEE: " + databaseJSON[i].description);
         }
         //Verificação caso usuário limpou o campo de entrada, para tambem retirar as sugestões
         if(sugestion == ""){ sugestionHTML = ""};
@@ -152,12 +148,15 @@ function sugestSearch(){
     }
 }
 
+//Executa função dinamicTrigger a cada 5 segundos
+setInterval(function(){ dinamicTrigger(); }, 5000);
+
 /* Renderização do HTML via template HBS (Não é mais utilizado, problemas)
 function renderHTML2(data){
     console.log("Teste 1");
     var rawTemplate = document.getElementById("bannersTemplate").innerHTML;
     var compiledTemplate = Handlebars.compile(rawTemplate);
-    var generatedHTML = compiledTemplate(jsonTest);
+    var generatedHTML = compiledTemplate(databaseJSON);
     var bannersContainer = document.getElementById("bannersContainer");
     console.log("Teste 1");
 
