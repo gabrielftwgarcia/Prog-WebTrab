@@ -58,6 +58,15 @@ body {
     float: left;
     margin-left: 30%
 }
+.searchSugestion{
+    width: 35%;
+    height: 25px;
+    float: left;
+    margin-left: 38.7%;    
+    background-color: #aaec38;
+    text-align: center;
+} 
+
 
 .menuBarWrapper {
     background-color: black;

@@ -15,12 +15,14 @@
 <body>
     <div class="headerWrapper">
         <div class="container headerIcons nvidiaIcon"></div>
-        <form class="searchBar" action="/busca" method="post">
-            <div class="input">
-            <input type="text" id="search" name="search"></div>
-            <div><button type="submit">Buscar</button></div>
+        <form id="searchForm" autocomplete="off">
+            <input class="searchBar" type="text" id="searchInput">
+
+            <input type="submit" value="Buscar">
         </form>
         <div id="loginBtn" class="container headerIcons userIcon" onclick="abrirTelaLogin()"></div>
+
+        <div id="sugestionContainer"></div>        
     </div>
 
     <!-- Criando um modal ao clicar no botão Adicionar relacionado à protocolo -->
@@ -68,6 +70,7 @@
     </div>
 
     <div><button id="dinamic">Dinamico</button></div>
+    <p id="requestProgress">Status requisição XMLHTTP: Não iniciado</p>
 </body>
     <script type="text/javascript" src="js/index.js"></script>
 
